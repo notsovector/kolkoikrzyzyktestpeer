@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kółko i Krzyżyk P2P (PeerJS)</title>
+    <!-- PeerJS CDN -->
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Kółko i Krzyżyk <span>P2P</span></h1>
+
+        <!-- Panel Połączenia -->
+        <div class="card connection-panel">
+            <div class="my-id-section">
+                <label>Twoje ID:</label>
+                <div class="input-group">
+                    <input type="text" id="my-id" readonly placeholder="Generowanie ID...">
+                    <button id="copy-btn" disabled>Kopiuj ID</button>
+                </div>
+            </div>
+
+            <div class="divider">lub</div>
+
+            <div class="join-section">
+                <label>Dołącz do gracza:</label>
+                <div class="input-group">
+                    <input type="text" id="peer-id-input" placeholder="Wklej ID przeciwnika">
+                    <button id="connect-btn">Połącz</button>
+                </div>
+            </div>
+
+            <div id="status-bar" class="status-bar disconnected">
+                <span class="status-dot"></span>
+                <span id="status-text">Oczekiwanie na połączenie...</span>
+            </div>
+        </div>
+
+        <!-- Panel Gry -->
+        <div class="card game-panel">
+            <div class="game-info">
+                <div class="player-badge">Grasz jako: <strong id="player-symbol">-</strong></div>
+                <div class="turn-indicator" id="turn-text">Oczekuj na gracza</div>
+            </div>
+
+            <div class="board" id="board">
+                <button class="cell" data-index="0"></button>
+                <button class="cell" data-index="1"></button>
+                <button class="cell" data-index="2"></button>
+                <button class="cell" data-index="3"></button>
+                <button class="cell" data-index="4"></button>
+                <button class="cell" data-index="5"></button>
+                <button class="cell" data-index="6"></button>
+                <button class="cell" data-index="7"></button>
+                <button class="cell" data-index="8"></button>
+            </div>
+
+            <button id="restart-btn" class="restart-btn" disabled>Zagraj ponownie</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

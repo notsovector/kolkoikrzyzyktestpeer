@@ -1,0 +1,210 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --accent: #38bdf8;
+    --accent-hover: #0284c7;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --x-color: #f43f5e;
+    --o-color: #38bdf8;
+    --border-color: #334155;
+    --success: #10b981;
+    --danger: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+h1 span {
+    color: var(--accent);
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+}
+
+.connection-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.input-group {
+    display: flex;
+    gap: 8px;
+}
+
+input {
+    flex: 1;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    border-color: var(--accent);
+}
+
+button {
+    background-color: var(--accent);
+    color: #000;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+button:hover:not(:disabled) {
+    background-color: var(--accent-hover);
+    color: #fff;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.divider {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    position: relative;
+}
+
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-size: 0.875rem;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--text-muted);
+}
+
+.status-bar.connected .status-dot {
+    background-color: var(--success);
+    box-shadow: 0 0 8px var(--success);
+}
+
+.status-bar.disconnected .status-dot {
+    background-color: var(--danger);
+}
+
+/* Panel Gry */
+.game-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.game-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.player-badge strong {
+    color: var(--accent);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.cell {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    aspect-ratio: 1;
+    padding: 0;
+}
+
+.cell:hover:not(:disabled) {
+    border-color: var(--accent);
+    background-color: rgba(56, 189, 248, 0.05);
+}
+
+.cell.x {
+    color: var(--x-color);
+}
+
+.cell.o {
+    color: var(--o-color);
+}
+
+.cell.winner {
+    background-color: rgba(16, 185, 129, 0.2);
+    border-color: var(--success);
+}
+
+.restart-btn {
+    width: 100%;
+    padding: 12px;
+}
